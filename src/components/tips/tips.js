@@ -5,12 +5,23 @@ const TipsCont = styled.div`
 
 `;
 
+
+
  class Tips extends Component {
+
+  state={
+
+    typeclient:""
+  
+  }
+
   render() {
+
     return(
         <TipsCont>
-            Dicas
-            <p>[Gerar dicas dinamicas de acordo com a combinação acima]</p>
+          <h2>Dicas: Cliente <a id="typeclient"></a></h2>
+            
+            <div id="tips-content">[Gerar dicas dinamicas de acordo com a combinação acima]</div>
         </TipsCont>
     );
   }

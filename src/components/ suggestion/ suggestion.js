@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './suggestion.css';
 import styled from 'styled-components'
-import Input from '../inputs/inputs.js'
+
 
 
 const Content = styled.div`

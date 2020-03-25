@@ -8,6 +8,7 @@ import Suggestion from './components/ suggestion/ suggestion';
 import Tips from './components/tips/tips';
 
 
+
 ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<Inputs />, document.getElementById('inputs'));
 ReactDOM.render(<Tips />, document.getElementById('tips'));

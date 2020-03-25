@@ -6,8 +6,8 @@ const InputsContent = styled.div`
     padding: 3%;
 `;
 
-const teste = "este é um teste";
-const comboInputs = React.createContext();
+
+
 let comb = {};
 
 
@@ -15,40 +15,36 @@ class Inputs extends Component {
 
   constructor(props) {
     super(props);
-    //this.combo = this.combo.bind(this);
-    
   }
   
-
   combo() {
 
     comb = {c1:document.getElementById("tClient").value,
             c2:document.getElementById("func").value,
             c3:document.getElementById("subject").value}
 
+    document.getElementById("typeclient").innerHTML = comb.c1;
+
     if(comb.c1 == "Ancioso" && comb.c2 == "Integração: RD Station Marketing" && comb.c3 ==  "Combinação de campos"){
+
+      // conteúdo do meio da sugestão
 
       document.getElementById("second").innerHTML= 
       
       "Inserir um texto explicando sobre combinação de campos"
 
+      //conteúdo da dica
+
+      document.getElementById("tips-content").innerHTML= 
+      
+      "Dicas para clientes do tipo"+" "+comb.c1
+
     }
-
-    
-
-      
-      
-
-
-  }
-
-
+}
 
   render() {
     return (
-
       <InputsContent>
-      
       <p>      
         <label>
           Escolha o tipo de cliente:
@@ -76,7 +72,6 @@ class Inputs extends Component {
             <option value="Integração: RD Station Marketing">Integração: RD Station Marketing</option>
           </select>
           </p>
-
           <p>
           <label>
           Escolha o Assunto:
@@ -93,10 +88,7 @@ class Inputs extends Component {
     
       </InputsContent>
 
-   
-
     );
-
 
   }
 }

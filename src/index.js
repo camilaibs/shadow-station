@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Inputs from './components/inputs/inputs';
-import Suggestion from './components/ suggestion/ suggestion';
+import Suggestion from './components/suggestion/ suggestion';
 import Tips from './components/tips/tips';
 
 
@@ -12,7 +12,7 @@ import Tips from './components/tips/tips';
 ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<Inputs />, document.getElementById('inputs'));
 ReactDOM.render(<Tips />, document.getElementById('tips'));
-ReactDOM.render(<Suggestion />, document.getElementById('suggestion'));
+
 
 
 

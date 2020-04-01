@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import Suggestion from '../suggestion/ suggestion'
 
 const InputsContent = styled.div`
     position: relative;
@@ -7,43 +8,33 @@ const InputsContent = styled.div`
 `;
 
 
-
-let comb = {};
-
-
 class Inputs extends Component {
 
-  constructor(props) {
-    super(props);
+ state ={
+
+    inputValueCli:"",
+    inputValueFea:"",
+    inputValueSub: "",
+    contValueSub:"",
+    contValuetips:""
   }
   
-  combo() {
+  handleChangeCli = (event) =>  {
+    this.setState({inputValueCli: event.target.value});
+    
+  }
 
-    comb = {c1:document.getElementById("tClient").value,
-            c2:document.getElementById("func").value,
-            c3:document.getElementById("subject").value}
+  handleChangeFunc = (event) =>  {
+    this.setState({inputValueFea: event.target.value});
+  }
 
-    document.getElementById("typeclient").innerHTML = comb.c1;
-
-    if(comb.c1 == "Ancioso" && comb.c2 == "Integração: RD Station Marketing" && comb.c3 ==  "Combinação de campos"){
-
-      // conteúdo do meio da sugestão
-
-      document.getElementById("second").innerHTML= 
-      
-      "Inserir um texto explicando sobre combinação de campos"
-
-      //conteúdo da dica
-
-      document.getElementById("tips-content").innerHTML= 
-      
-      "Dicas para clientes do tipo"+" "+comb.c1
-
-    }
-}
-
+  handleChangeSub = (event) =>  {
+    this.setState({inputValueSub: event.target.value});
+  }
+  
   render() {
     return (
+
       <InputsContent>
       <p>      
         <label>
@@ -51,7 +42,7 @@ class Inputs extends Component {
           </label>
           <p></p>
           
-          <select id="tClient">
+          <select value={this.state.inputValueCli} onChange={this.handleChangeCli}>
           <option value="-">Selecione o tipo de cliente</option>
            <option value="Ancioso">Ancioso</option>
             <option value="Avançado">Avançado</option>
@@ -67,7 +58,7 @@ class Inputs extends Component {
           Escolha a funcionalidade:
           </label>
           <p></p>
-          <select id="func">
+          <select value={this.state.inputValueFea} onChange={this.handleChangeFunc}>
           <option value="-">Selecione a funcionalidade</option>
             <option value="Integração: RD Station Marketing">Integração: RD Station Marketing</option>
           </select>
@@ -77,14 +68,20 @@ class Inputs extends Component {
           Escolha o Assunto:
           </label>
           <p></p>
-          <select id="subject">
+          <select value={this.state.inputValueSub} onChange={this.handleChangeSub}>
           <option value="-">Selecione o assunto</option>
             <option value="Combinação de campos">Combinação de Campos</option>
           </select>
           </p>
         <p>
-        <input type="button" onClick={this.combo} value="Gerar Sugestão" />
+        <input type="button" onClick="" value="Gerar Sugestão" />
         </p>
+
+        <div>
+          <Suggestion clientType={this.state.inputValueCli} feature={this.state.inputValueFea} 
+          subject={this.state.inputValueSub} />
+
+        </div>
     
       </InputsContent>
 

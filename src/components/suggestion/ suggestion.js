@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './suggestion.css';
 import styled from 'styled-components'
-
-
+import Inputs from '../inputs/inputs'
 
 const Content = styled.div`
     padding: 1em;
@@ -27,14 +26,22 @@ const FinalSg = styled.div`
     padding: 15px;
 `;
 
-
-
  class Suggestion extends Component {
+
+  state = {
+    contSugg: ""
+  }
+
+  teste = () => {
+
+    let a = this.props.subject
+    console.log(a);
+  }
 
   render() {
     return (
-
-        <Content>
+    
+    <Content>
           
           <FirstSg>
             <p>Bom dia!</p>
@@ -43,30 +50,25 @@ const FinalSg = styled.div`
           </FirstSg>
 
           <SecondSg  id="second">
-            <p>Conteúdo</p>
+            <p>{this.props.clientType}</p>
+            <p>{this.props.feature }</p>
+            <p>{this.props.subject}</p>
           </SecondSg>
 
           <FinalSg>
 
             <p>Consegui te ajudar?</p>
-            <p>Caso eu não tenha sido claro ouo essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
+            <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
             <p>Se surgirem novas dúvidas diferentes deste assunto, basta abrir uma nova solicitação <a href="">clicando aqui.</a> :)</p> 
             <p>Abraços,</p>       
             
           </FinalSg>
 
+          <button onClick={this.teste}>Clique</button>
+
         </Content>
-
-        
-        
-
-        
-
-
-
     );
   }
 }
 
 export default Suggestion;
-

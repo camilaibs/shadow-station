@@ -8,8 +8,8 @@ const Content = styled.div`
     background: papayawhip;
     position: relative;
     width: 50%;
-    bottom: 360px;
-    left: 33%;
+    bottom: 300px;
+    left: 33%;    
 `;
 
 const FirstSg = styled.div`
@@ -27,16 +27,6 @@ const FinalSg = styled.div`
 `;
 
  class Suggestion extends Component {
-
-  state = {
-    contSugg: ""
-  }
-
-  teste = () => {
-
-    let a = this.props.subject
-    console.log(a);
-  }
 
   render() {
     return (
@@ -63,8 +53,6 @@ const FinalSg = styled.div`
             <p>Abraços,</p>       
             
           </FinalSg>
-
-          <button onClick={this.teste}>Clique</button>
 
         </Content>
     );

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const TipsCont = styled.div`
+   position:relative;
+   
 
 `;
 
@@ -19,9 +21,8 @@ const TipsCont = styled.div`
 
     return(
         <TipsCont>
-          <h2>Dicas: Cliente <a id="typeclient"></a></h2>
-            
-            <div id="tips-content">[Gerar dicas dinamicas de acordo com a combinação acima]</div>
+          <h2>Dicas de Atendimento</h2>
+          <h3>Cliente {this.props.clientType}</h3>            
         </TipsCont>
     );
   }

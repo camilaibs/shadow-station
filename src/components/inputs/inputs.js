@@ -4,9 +4,8 @@ import Suggestion from '../suggestion/ suggestion'
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Tips from '../tips/tips'
 
 
 const Content = styled.div`
@@ -17,14 +16,11 @@ const Content = styled.div`
 `;
 
 const InputsContent = styled.div`
-    display: flex;
     position: relative;
     padding: 3%;
-    width:20%;
-    flex-direction: column;
+    width:15.5%;
     background-color: #f6f9ff;
     border-radius:7px;
-    padding-right:5%;
 `;
 
 const CssSelect = styled.span`
@@ -46,7 +42,8 @@ class Inputs extends Component {
     inputValueFea:"",
     inputValueSub: "",
     contValueSub:"",
-    contValuetips:""
+    contValuetips:"",
+    fade:""
   }
   
   handleChangeCli = (event) =>  {
@@ -60,6 +57,11 @@ class Inputs extends Component {
 
   handleChangeSub = (event) =>  {
     this.setState({inputValueSub: event.target.value});
+  }
+
+  createSug = () =>{
+    this.setState({fade:true});
+    
   }
   
   render() {
@@ -97,15 +99,25 @@ class Inputs extends Component {
         <MenuItem value="Combinação de campos">Combinação de Campos</MenuItem>
       </Select>
       </CssSelect>
-      <Button onClick="" variant="contained" color="primary">Gerar Sugestão</Button>
+      <p><Button onClick="" variant="contained" color="primary" onClick={() =>{this.setState({fade:true})}}>Gerar Sugestão</Button></p>
+      <Button onClick="" variant="contained" color="default" onClick={() =>{this.setState({fade:false})}}>Limpar Sugestão</Button>
       </ InputsContent>
+
+      <div>
+      <Tips clientType={this.state.inputValueCli} feature={this.state.inputValueFea} 
+          subject={this.state.inputValueSub}/>
+      </div>
       
       <div>
           <Suggestion clientType={this.state.inputValueCli} feature={this.state.inputValueFea} 
-          subject={this.state.inputValueSub}/> 
+          subject={this.state.inputValueSub} fade={this.state.fade} /> 
       </div>
+
+     
     
       </Content>
+
+      
 
     );
 

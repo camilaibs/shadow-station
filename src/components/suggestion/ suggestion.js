@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './suggestion.css';
 import styled, { keyframes } from 'styled-components'
-
+import Inputs from '../inputs/inputs'
 
 const Content = styled.div`
     display:${props => props.fade ? 'flex' : 'none'};;
@@ -39,23 +39,26 @@ const fadeOut = keyframes`
   }
 `;
 
-const FirstSg = styled.div`
+const FirstSuggestion = styled.div`
   display: inline-block;
   position: relative;
   padding: 15px;
 `;
 
-const SecondSg = styled.div`
+const SecondSuggestion = styled.div`
 display: inline-block;
     position: relative;
     padding: 15px;
 `;
 
-const FinalSg = styled.div`
+const FinalSuggestion = styled.div`
     display: inline-block;
     position: relative;
     padding: 15px;
 `;
+
+const InputsContext = React.createContext(); 
+
 
  class Suggestion extends Component {
 
@@ -63,26 +66,27 @@ const FinalSg = styled.div`
     return (
     <Content fade={this.props.fade}>
 
-          <FirstSg>
+          <FirstSuggestion>
             <p>Bom dia!</p>
             <p>Tudo bem com você?</p>
             <p>Eu me chamo current.user, faço parte do suporte do RD Station CRM e vou te ajudar com essa questão, ok?</p>
-          </FirstSg>
+          </FirstSuggestion>
 
-          <SecondSg >
+          <SecondSuggestion >
+
             <p>{this.props.clientType}</p>
             <p>{this.props.feature }</p>
             <p>{this.props.subject}</p>
-          </SecondSg>
+          </SecondSuggestion>
 
-          <FinalSg>
+          <FinalSuggestion>
 
             <p>Consegui te ajudar?</p>
             <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
             <p>Se surgirem novas dúvidas diferentes deste assunto, basta abrir uma nova solicitação <a href="">clicando aqui.</a> :)</p> 
             <p>Abraços,</p>       
             
-          </FinalSg>
+          </FinalSuggestion>
 
         </Content>
     );

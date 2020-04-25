@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components'
 import Suggestion from '../suggestion/ suggestion'
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Tips from '../tips/tips'
+import {InputProvider} from '../../contexts/InputContext'
+import {InputContext} from '../../contexts/InputContext'
 
 
 
@@ -34,102 +36,97 @@ display:flex;
 }
 `;
 
-let InputsObj = {};
 
-const InputsContext = React.createContext(InputsObj); 
+const Inputs = () => {
 
+  const [inputsValue, setInputs] = useContext(InputContext);
 
+  let obj = {
+    inputValueClient: "-",
+    inputValueFeature: "-",
+    inputValueSubject: "-",
+    contentValueSubject: "-",
+    contentValueTips: "-",
+    fade: false
+  }
+ 
 
-class Inputs extends Component {
-
-  state = {
-
-    inputValueCli: "",
-    inputValueFea: "",
-    inputValueSub: "",
-    contValueSub: "",
-    contValuetips: "",
-    InputsObj: {},
-    fade: ""
+  const handleChangeClient = (event) => {
+    obj.inputValueClient= event.target.value;
   }
 
-  handleChangeCli = (event) => {
-    this.setState({ inputValueCli: event.target.value });
-
+  const handleChangeFeature = (event) => {
+    obj.inputValueFeature= event.target.value;
   }
-
-  handleChangeFunc = (event) => {
-    this.setState({ inputValueFea: event.target.value });
-  }
-
-  handleChangeSub = (event) => {
-    this.setState({ inputValueSub: event.target.value });
-  }
-
-  createSuggestion = () => {
-
-    console.log()
+  
+  const handleChangeSubject = (event) => {
+    obj.inputValueSubject= event.target.value;
     
-    // this.setState({ fade: true, InputsObj:{inputValueCli:this.state.inputValueCli, feature:this.state.inputValueFea,
-    //   subject:this.state.inputValueSub}});
-
-    this.setState({ fade: true})
-
-
-
-      
   }
 
-  render() {
+  const createSuggestion = () => {
+    obj.fade= true;
+    setInputs(obj);
+    console.log(inputsValue);
+
+    }
+
+  const clearSuggestion = () => {
+
+    obj = {
+      inputValueClient: "-",
+      inputValueFeature: "-",
+      inputValueSubject: "-",
+      contentValueSubject: "-",
+      contentValueTips: "-",
+      fade: false
+    }
+    setInputs(obj);
+    
+  }
+
     return (
+    
 
-      <Content>
+      <InputProvider>
 
-        <InputsContent>
+        <Content>
 
-          <InputLabel>Escolha o tipo de cliente:</InputLabel>
-          <CssSelect>
-            <Select value={this.state.inputValueCli} onChange={this.handleChangeCli}>
-              <MenuItem value="Avançado">Avançado</MenuItem >
-              <MenuItem value="Iniciante">Iniciante</MenuItem >
-            </Select>
-          </CssSelect>
+          <InputsContent>
 
-          <InputLabel> Escolha a funcionalidade:</InputLabel>
-          <CssSelect>
-            <Select value={this.state.inputValueFea} onChange={this.handleChangeFunc}>
-              <MenuItem value="Integração: RD Station Marketing">Integração: RD Station Marketing</MenuItem>
-            </Select>
-          </CssSelect>
+            <InputLabel>Escolha o tipo de cliente:</InputLabel>
+            <CssSelect>
+              <Select  onChange={handleChangeClient}>
+                <MenuItem value="Avançado">Avançado</MenuItem >
+                <MenuItem value="Iniciante">Iniciante</MenuItem >
+              </Select>
+            </CssSelect>
 
-          <InputLabel>Escolha o Assunto:</InputLabel>
-          <CssSelect>
-            <Select value={this.state.inputValueSub} onChange={this.handleChangeSub}>
-              <MenuItem value="Combinação de campos">Combinação de Campos</MenuItem>
-            </Select>
-          </CssSelect>
-          <p><Button onClick="" variant="contained" color="primary" onClick={this.createSuggestion}>Gerar Sugestão</Button></p>
-          <Button onClick="" variant="contained" color="default" onClick={() => { this.setState({ fade: false }) }}>Limpar Sugestão</Button>
-        </ InputsContent>
+            <InputLabel> Escolha a funcionalidade:</InputLabel>
+            <CssSelect>
+              <Select onChange={handleChangeFeature}>
+                <MenuItem value="Integração: RD Station Marketing">Integração: RD Station Marketing</MenuItem>
+              </Select>
+            </CssSelect>
 
-        <div>
-          <Tips clientType={this.state.inputValueCli} feature={this.state.inputValueFea}
-            subject={this.state.inputValueSub}fade={this.state.fade}  />
-        </div>
+            <InputLabel>Escolha o Assunto:</InputLabel>
+            <CssSelect>
+              <Select onChange={handleChangeSubject}>
+                <MenuItem value="Combinação de campos">Combinação de Campos</MenuItem>
+                <MenuItem value="Distribuição de Leads">Distribuição de leads</MenuItem>
+              </Select>
+            </CssSelect>
+            <p><Button onClick="" variant="contained" color="primary" onClick={createSuggestion}>Gerar Sugestão</Button></p>
+            <Button onClick="" variant="contained" color="default" onClick={clearSuggestion}>Limpar Sugestão</Button>
+          </ InputsContent>
+        </Content>
 
-        <div>
-
-        <Suggestion clientType={this.state.inputValueCli} feature={this.state.inputValueFea}
-            subject={this.state.inputValueSub} fade={this.state.fade} />
-          
-        </div>
-
-      </Content>
-
-
+       </InputProvider>
+      
 
     );
 
   }
-}
+
+
 export default Inputs;

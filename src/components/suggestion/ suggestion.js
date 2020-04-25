@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, useContext, useState } from 'react';
 import './suggestion.css';
 import styled, { keyframes } from 'styled-components'
 import Inputs from '../inputs/inputs'
+import {InputProvider} from '../../contexts/InputContext'
+import {InputContext} from '../../contexts/InputContext'
 
 const Content = styled.div`
     display:${props => props.fade ? 'flex' : 'none'};;
@@ -57,14 +59,16 @@ const FinalSuggestion = styled.div`
     padding: 15px;
 `;
 
-const InputsContext = React.createContext(); 
+ const Suggestion = () =>{
+   
+  const [inputsValue, setInputs] = useContext(InputContext);
 
-
- class Suggestion extends Component {
-
-  render() {
     return (
-    <Content fade={this.props.fade}>
+      <InputProvider>
+
+    <Content fade={inputsValue.fade}>
+
+    
 
           <FirstSuggestion>
             <p>Bom dia!</p>
@@ -74,9 +78,9 @@ const InputsContext = React.createContext();
 
           <SecondSuggestion >
 
-            <p>{this.props.clientType}</p>
-            <p>{this.props.feature }</p>
-            <p>{this.props.subject}</p>
+          <p>{inputsValue.inputValueClient}</p>
+          <p>{inputsValue.inputValueFeature}</p>
+          <p>{inputsValue.inputValueSubject}</p>
           </SecondSuggestion>
 
           <FinalSuggestion>
@@ -89,8 +93,10 @@ const InputsContext = React.createContext();
           </FinalSuggestion>
 
         </Content>
+
+        </InputProvider>
     );
   }
-}
+
 
 export default Suggestion;

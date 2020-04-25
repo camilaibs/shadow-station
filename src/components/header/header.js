@@ -45,7 +45,7 @@ class Header extends Component {
       
      <SubHeader>
 
-       <p>Some text for sub</p>
+       {/* <p>Some text for sub</p> */}
 
      </SubHeader>
           

@@ -13,7 +13,9 @@ export const InputProvider = props => {
         inputValueSubject: "-",
         contentValueSubject: "-",
         contentValueTips: "-",
-        fade: false
+        fade: false,
+        suggestion:"",
+        tips:""
       });
 
 return <InputContext.Provider value={[inputsValue, setInputs]}>{props.children}</InputContext.Provider>

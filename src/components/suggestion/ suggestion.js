@@ -1,16 +1,16 @@
-import React, { Component, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './suggestion.css';
 import styled, { keyframes } from 'styled-components'
-import Inputs from '../inputs/inputs'
-import {InputProvider} from '../../contexts/InputContext'
-import {InputContext} from '../../contexts/InputContext'
+import { InputProvider } from '../../contexts/InputContext'
+import { InputContext } from '../../contexts/InputContext'
+import './suggestion.css'
 
 const Content = styled.div`
     display:${props => props.fade ? 'flex' : 'none'};;
     padding: 1em;
     position: relative;
     width: 50%;
-    bottom: 460px;
+    bottom: 516px;
     left: 33%;    
     border-radius: 5px;
     background-color: #f6f9ff;
@@ -59,44 +59,45 @@ const FinalSuggestion = styled.div`
     padding: 15px;
 `;
 
- const Suggestion = () =>{
-   
+const Suggestion = () => {
+
   const [inputsValue, setInputs] = useContext(InputContext);
 
-    return (
-      <InputProvider>
+  return (
+    <InputProvider>
 
-    <Content fade={inputsValue.fade}>
+      <Content fade={!inputsValue.fade}>
+        <center><h3>Sua sugestão aparecerá aqui</h3>
+          <img class="img-loading" src="https://media.giphy.com/media/3oriOiizS4Pmofj46A/giphy.gif" height="268" width="278" />
+        </center>
+      </Content>
 
-    
+      <Content fade={inputsValue.fade}>
 
-          <FirstSuggestion>
-            <p>Bom dia!</p>
-            <p>Tudo bem com você?</p>
-            <p>Eu me chamo current.user, faço parte do suporte do RD Station CRM e vou te ajudar com essa questão, ok?</p>
-          </FirstSuggestion>
+        <FirstSuggestion>
+          <p>Bom dia!</p>
+          <p>Tudo bem com você?</p>
+          <p>Eu me chamo current.user, faço parte do suporte do RD Station CRM e vou te ajudar com essa questão, ok?</p>
+        </FirstSuggestion>
 
-          <SecondSuggestion >
+        <SecondSuggestion >
+          <p>{inputsValue.suggestion}</p>
+        </SecondSuggestion>
 
-          <p>{inputsValue.inputValueClient}</p>
-          <p>{inputsValue.inputValueFeature}</p>
-          <p>{inputsValue.inputValueSubject}</p>
-          </SecondSuggestion>
+        <FinalSuggestion>
 
-          <FinalSuggestion>
+          <p>Consegui te ajudar?</p>
+          <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
+          <p>Se surgirem novas dúvidas diferentes deste assunto, basta abrir uma nova solicitação <a href="">clicando aqui.</a> :)</p>
+          <p>Abraços,</p>
 
-            <p>Consegui te ajudar?</p>
-            <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
-            <p>Se surgirem novas dúvidas diferentes deste assunto, basta abrir uma nova solicitação <a href="">clicando aqui.</a> :)</p> 
-            <p>Abraços,</p>       
-            
-          </FinalSuggestion>
+        </FinalSuggestion>
 
-        </Content>
+      </Content>
 
-        </InputProvider>
-    );
-  }
+    </InputProvider>
+  );
+}
 
 
 export default Suggestion;

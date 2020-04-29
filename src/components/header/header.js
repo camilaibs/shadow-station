@@ -46,7 +46,12 @@ class Header extends Component {
         </AppBarUI>
 
         <SubHeader>
+          <div class="sub-header">
+
           <h2>RD Station | Shadow Station</h2>
+
+          </div>
+          
         </SubHeader>
       </React.Fragment>
     );

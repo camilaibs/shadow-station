@@ -3,11 +3,8 @@ import styled from 'styled-components'
 
 const TipsCont = styled.div`
    position:relative;
-   
-
+   margin-left:4.5%;
 `;
-
-
 
  class Tips extends Component {
 
@@ -22,7 +19,7 @@ const TipsCont = styled.div`
     return(
         <TipsCont>
           <h2>Dicas de Atendimento</h2>
-          <h3>Cliente {this.props.clientType}</h3>            
+          <h4>Em breve...</h4>            
         </TipsCont>
     );
   }

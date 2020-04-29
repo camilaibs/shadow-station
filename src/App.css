@@ -80,6 +80,15 @@
 
 }
 
+.sub-header{
+  position: relative;
+  top:53%;
+  color: #737373;
+}
+
+.root{
+  height: 1px;
+}
 
 
 

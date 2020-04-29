@@ -5,17 +5,21 @@ import Inputs from './components/inputs/inputs';
 import Tips from './components/tips/tips';
 import Suggestion from './components/suggestion/ suggestion';
 import { InputProvider } from './contexts/InputContext';
+import Ticket from './components/ticket/ticket';
 
 function App() {
 
   return (
     <InputProvider>
-      <div>
+
+      <React.Fragment>
         <Header />
         <Inputs />
         <Tips />
-        <Suggestion/>
-      </div>
+        <Suggestion />
+        <Ticket />  
+        </React.Fragment>
+
     </InputProvider>
   );
 

@@ -9,8 +9,8 @@ const Content = styled.div`
     display:${props => props.fade ? 'flex' : 'none'};;
     padding: 1em;
     position: relative;
-    width: 50%;
-    bottom: 516px;
+    width: 58%;
+    bottom: 515px;
     left: 33%;    
     border-radius: 5px;
     background-color: #f6f9ff;
@@ -63,6 +63,7 @@ const Suggestion = () => {
 
   const [inputsValue, setInputs] = useContext(InputContext);
 
+  
   return (
     <InputProvider>
 
@@ -75,20 +76,20 @@ const Suggestion = () => {
       <Content fade={inputsValue.fade}>
 
         <FirstSuggestion>
-          <p>Bom dia!</p>
-          <p>Tudo bem com você?</p>
-          <p>Eu me chamo current.user, faço parte do suporte do RD Station CRM e vou te ajudar com essa questão, ok?</p>
+          <p><i><b>[Bom dia/Boa tarde, Cliente]</b></i>, tudo bem com você?</p>
+          <p>Eu me chamo <i><b>[Seu nome]</b></i>, faço parte do suporte do <b>RD Station CRM</b> e vou te ajudar com essa questão, ok?</p>
         </FirstSuggestion>
 
         <SecondSuggestion >
           <p>{inputsValue.suggestion}</p>
+         
         </SecondSuggestion>
 
         <FinalSuggestion>
 
           <p>Consegui te ajudar?</p>
-          <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, basta me chamar por aqui novamente que eu irei te ajudar!</p>
-          <p>Se surgirem novas dúvidas diferentes deste assunto, basta abrir uma nova solicitação <a href="">clicando aqui.</a> :)</p>
+          <p>Caso eu não tenha sido claro ou essa não era a sua dúvida, peço que retorne neste mesmo email, pois continuo à
+            disposição para te ajudar! :) </p>
           <p>Abraços,</p>
 
         </FinalSuggestion>

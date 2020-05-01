@@ -18,7 +18,7 @@ const Content = styled.div`
     visibility: ${props => props.fade ? 'visible' : 'hidden'};
     animation: ${props => props.fade ? fadeIn : fadeOut} 0.60s linear;
     transition: visibility 0.60s linear;
-    
+    text-align: justify;
 `;
 
 const fadeIn = keyframes`

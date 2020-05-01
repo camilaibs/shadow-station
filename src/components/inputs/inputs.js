@@ -47,6 +47,9 @@ const Inputs = () => {
         tips: snapshot.val().tips
       }));
 
+      let main = document.querySelector("main");
+      main.innerHTML=snapshot.val().suggestion;
+
     }).catch(function (error) {
 
       console.log("Gerou um erro ao carregar os dados do banco:");
@@ -97,6 +100,7 @@ const Inputs = () => {
       readDB(inputsValue.inputValueClient, inputsValue.inputValueFeature,
         inputsValue.inputValueSubject);
     }
+
 
   }
 

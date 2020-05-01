@@ -44,26 +44,31 @@ const fadeOut = keyframes`
 const FirstSuggestion = styled.div`
   display: inline-block;
   position: relative;
-  padding: 15px;
+  padding: 30px;
+  margin-bottom:-30px;
 `;
 
 const SecondSuggestion = styled.div`
-display: inline-block;
+    display: inline-block;
     position: relative;
-    padding: 15px;
+    padding: 30px;
+    margin-bottom:-50px;
+    margin-top:-30px;
+    z-index:4;
+
 `;
 
 const FinalSuggestion = styled.div`
     display: inline-block;
     position: relative;
-    padding: 15px;
+    padding: 30px;
 `;
 
 const Suggestion = () => {
 
   const [inputsValue, setInputs] = useContext(InputContext);
 
-  
+
   return (
     <InputProvider>
 
@@ -80,9 +85,8 @@ const Suggestion = () => {
           <p>Eu me chamo <i><b>[Seu nome]</b></i>, faço parte do suporte do <b>RD Station CRM</b> e vou te ajudar com essa questão, ok?</p>
         </FirstSuggestion>
 
-        <SecondSuggestion >
-          <p>{inputsValue.suggestion}</p>
-         
+        <SecondSuggestion>
+          <main id="main"></main>
         </SecondSuggestion>
 
         <FinalSuggestion>
@@ -99,6 +103,5 @@ const Suggestion = () => {
     </InputProvider>
   );
 }
-
 
 export default Suggestion;

@@ -21,6 +21,7 @@ const InputsContent = styled.div`
     width:15.5%;
     background-color: #f6f9ff;
     border-radius:7px;
+    box-shadow:  2px 2px 5px #c1c1c1;
 `;
 
 const CssSelect = styled.span`

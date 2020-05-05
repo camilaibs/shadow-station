@@ -4,13 +4,15 @@ import styled, { keyframes } from 'styled-components'
 import { InputProvider } from '../../contexts/InputContext'
 import { InputContext } from '../../contexts/InputContext'
 import './suggestion.css'
+import { template } from '@babel/core';
 
+// bottom: 515px;
 const Content = styled.div`
     display:${props => props.fade ? 'flex' : 'none'};;
     padding: 1em;
     position: relative;
     width: 58%;
-    bottom: 515px;
+    bottom: 430px;
     left: 33%;    
     border-radius: 5px;
     background-color: #f6f9ff;
@@ -19,6 +21,8 @@ const Content = styled.div`
     animation: ${props => props.fade ? fadeIn : fadeOut} 0.60s linear;
     transition: visibility 0.60s linear;
     text-align: justify;
+    box-shadow:  2px 2px 5px #c1c1c1;
+    margin-bottom:50px;
 `;
 
 const fadeIn = keyframes`
@@ -55,7 +59,6 @@ const SecondSuggestion = styled.div`
     margin-bottom:-50px;
     margin-top:-30px;
     z-index:4;
-
 `;
 
 const FinalSuggestion = styled.div`
@@ -73,8 +76,8 @@ const Suggestion = () => {
     <InputProvider>
 
       <Content fade={!inputsValue.fade}>
-        <center><h3>Sua sugestão aparecerá aqui</h3>
-          <img class="img-loading" src="https://media.giphy.com/media/3oriOiizS4Pmofj46A/giphy.gif" height="268" width="278" />
+        <center><h3>Sua sugestão aparecerá aqui em baixo:</h3>
+          <img class="img-loading" src="https://media.giphy.com/media/3oriOiizS4Pmofj46A/giphy.gif" height="273" width="278" />
         </center>
       </Content>
 
@@ -86,7 +89,7 @@ const Suggestion = () => {
         </FirstSuggestion>
 
         <SecondSuggestion>
-          <main id="main"></main>
+          <main></main>
         </SecondSuggestion>
 
         <FinalSuggestion>

@@ -21,7 +21,7 @@ const Ticket = () => {
 
         <TicketCard>
 
-            <Cards>
+            {/* <Cards>
                 <h3>Ticket de exemplo</h3>
                 <h4>Em breve..</h4>
 
@@ -31,7 +31,7 @@ const Ticket = () => {
                 <h3>Vídeo de exemplo</h3>
                 <h4>Em breve..</h4>
 
-            </Cards>
+            </Cards> */}
 
             </TicketCard>
 

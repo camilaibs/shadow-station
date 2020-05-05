@@ -18,8 +18,8 @@ const TipsCont = styled.div`
 
     return(
         <TipsCont>
-          <h2>Dicas de Atendimento</h2>
-          <h4>Em breve...</h4>            
+          <h2></h2>
+          <h4></h4>            
         </TipsCont>
     );
   }
